@@ -1,0 +1,16 @@
+---
+- hosts: routers
+  become: yes
+    
+  tasks:
+    - name: Delete interface using aggregate
+      cisco.ios.ios_interface:
+        aggregate:
+        - name: Loopback888
+        state: absent
+
+
+
+
+
+

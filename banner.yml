@@ -1,0 +1,14 @@
+---
+- hosts: routers
+  become: yes
+
+  tasks:
+    - name: Configure the login banner using delimiter
+      cisco.ios.ios_banner:
+        banner: login
+        multiline_delimiter: x
+        text: This is my login banner
+        state: present
+
+
+

@@ -1,0 +1,23 @@
+---
+- name: Gather IOS Facts
+  hosts: 192.168.1.161 , 192.168.1.162 , 192.168.1.163 , 192.168.1.164 , 192.168.1.165 , 192.168.1.81 , 192.168.1.82
+  connection: local
+  tasks:
+    - name: Gather IOS Facts
+      ios_facts:
+        provider:
+          host: 192.168.1.161
+          port: 22
+          authorize: yes
+          auth_pass: cisco
+          username: admin
+          password: cisco
+
+    - name: What is the IOS OS ver?
+      debug:
+        var: ansible_net_version
+
+    - name: What is the hostname?
+      debug:
+        var: ansible_net_hostname
+...
