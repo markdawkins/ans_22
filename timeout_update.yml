@@ -1,0 +1,19 @@
+---
+- name: IOS Command Output
+  hosts:  test
+  gather_facts: false
+  connection: network_cli
+
+  tasks:
+    - name: show  run  for time out values 
+      ios_command:
+        commands:
+            - show run | inc GigabitEthernet|timeout
+
+      register: output
+
+    - name: config example
+      when: '"dot1x timeout 7" in "{{ output.stdout }}"'
+      ios_config: 
+        lines:
+          - dot1x timeout 10
