@@ -1,0 +1,5 @@
+List of changes made to directory and or files
+
+7-5-22 
+Create the group_var directory to house password username variables
+
