@@ -1,0 +1,22 @@
+---
+- name: Issue show commands
+  hosts: 1.1.1.1 , 1.1.1.2
+  connection: local
+  tasks:
+    - name: show  run
+      ios_command:
+        commands:
+          - show  run
+        provider:
+          host: 1.1.1.1
+          port: 22
+          authorize: yes
+          auth_pass: <password>
+          username: admin
+          password: <password>
+      register: if_data
+
+    - name: Interfaces output
+      debug:
+        var: if_data['stdout_lines'][0]
+...

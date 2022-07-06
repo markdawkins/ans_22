@@ -13,7 +13,7 @@
       register: output
 
     - name: config example
-      when: '"dot1x timeout 7" in "{{ output.stdout }}"'
+      when: '"dot1x timeout tx-period 7" in "{{ output.stdout }}"'
       ios_config: 
         lines:
-          - dot1x timeout 10
+          - dot1x timeout tx-period 10
