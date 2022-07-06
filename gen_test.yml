@@ -1,0 +1,37 @@
+---
+- name: gen test for  checking modules
+  connection: network_cli
+  gather_facts: false
+  hosts: switches
+  tasks:
+    - name: run show version on remote devices
+      ios_command:
+        commands: show version
+      register: show_ver_data
+
+    - name: Interfaces output
+      debug:
+        var: show_ver_data['stdout_lines'][0]
+
+    
+    - name: run multiple commands on remote nodes
+      ios_command:
+        commands:
+        #- show vlan brief
+        - show interface status
+      register: show_int_status
+    - name: Interfaces output
+      debug:
+        var: show_int_status['stdout_lines'][0]
+
+
+ 
+    - name: run multiple commands and evaluate the output
+      ios_command:
+        commands:
+        - show version 
+        - show interfaces
+        wait_for: 
+        - result[0] contains IOS
+        - result[1] contains 1/0/1
+...
