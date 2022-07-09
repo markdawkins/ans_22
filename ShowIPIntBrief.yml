@@ -1,19 +1,12 @@
 ---
 - name: Issue show commands
-  hosts: 192.168.1.161 , 192.168.1.162 , 192.168.1.163 , 192.168.1.164 , 192.168.1.165 , 192.168.1.81 , 192.168.1.82
+  hosts: switches
   connection: local
   tasks:
     - name: Show ip int brief
       ios_command:
         commands:
           - show ip int brief
-        provider:
-          host: 192.168.1.163
-          port: 22
-          authorize: yes
-          auth_pass: cisco
-          username: cisco
-          password: cisco
       register: if_data
 
     - name: Interfaces output
