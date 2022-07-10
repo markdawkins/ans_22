@@ -1,0 +1,13 @@
+---
+- name: retrieve interface information
+  hosts: switches,routers
+  gather_facts: false
+  tasks:
+    - name: use state gathered
+      cisco.ios.ios_interfaces:
+        state: gathered
+      register: interfaces_info
+    - name: print out interfaces information
+      debug:
+        msg: “{{ interfaces_info }}”
+...
