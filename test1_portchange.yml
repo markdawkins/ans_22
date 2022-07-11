@@ -1,0 +1,28 @@
+---
+
+- name: test1_portchange
+  hosts: switches
+  gather_facts: false
+  connection: network_cli
+
+  tasks:
+    - name: Interface configs
+      ios_config:
+        lines: dot1x timeout tx-period 10
+        parents:
+        -  Interface GigabitEthernet1/0/2
+        -  Interface GigabitEthernet1/0/3
+        #-  Interface GigabitEthernet1/0/4
+        #-  Interface GigabitEthernet1/0/5
+        #-  Interface GigabitEthernet1/0/6
+        #before: default interface GigabitEthernet0/1
+      register: output
+
+    - name: Save running-config
+      ios_config:
+        save_when: modified
+
+
+    - name: print output
+      debug:
+        var: output

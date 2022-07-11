@@ -1,0 +1,16 @@
+---
+- hosts: switches
+  gather_facts: no
+  connection: network_cli
+
+  tasks:
+  - name: BACKUP RUNNING CONFIG
+    ios_config:
+      backup: yes
+    
+      
+
+ 
+
+
+
