@@ -1,0 +1,156 @@
+2022-07-15 20:50:20,303 -  nornir.core -  WARNING -        run() - Task 'netmiko_send_command' has not been run – 0 hosts selected
+2022-07-15 20:50:31,319 -  nornir.core -  WARNING -        run() - Task 'netmiko_send_command' has not been run – 0 hosts selected
+2022-07-15 20:51:14,672 -  nornir.core -  WARNING -        run() - Task 'netmiko_send_command' has not been run – 0 hosts selected
+2022-07-15 20:53:26,367 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'sh ip int brief'} on 2 hosts
+2022-07-15 20:53:29,034 - nornir.core.task -    ERROR -      start() - Host 'SW2': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/mark/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 1021, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/home/mark/.local/lib/python3.10/site-packages/paramiko/client.py", line 435, in connect
+    self._auth(
+  File "/home/mark/.local/lib/python3.10/site-packages/paramiko/client.py", line 766, in _auth
+    raise saved_exception
+  File "/home/mark/.local/lib/python3.10/site-packages/paramiko/client.py", line 753, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/mark/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1564, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/mark/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 259, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/mark/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/mark/.local/lib/python3.10/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/mark/.local/lib/python3.10/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/mark/.local/lib/python3.10/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/mark/.local/lib/python3.10/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/mark/.local/lib/python3.10/site-packages/netmiko/ssh_dispatcher.py", line 351, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/mark/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 434, in __init__
+    self._open()
+  File "/home/mark/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 439, in _open
+    self.establish_connection()
+  File "/home/mark/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 1058, in establish_connection
+    raise NetmikoAuthenticationException(msg)
+netmiko.exceptions.NetmikoAuthenticationException: Authentication to device failed.
+
+Common causes of this problem are:
+1. Invalid username and password
+2. Incorrect SSH-key file
+3. Connecting to the wrong device
+
+Device settings: cisco_ios 10.23.157.32:22
+
+
+Authentication failed.
+
+2022-07-15 20:53:45,074 - nornir.core.task -    ERROR -      start() - Host 'SW1': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/mark/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 1021, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/home/mark/.local/lib/python3.10/site-packages/paramiko/client.py", line 435, in connect
+    self._auth(
+  File "/home/mark/.local/lib/python3.10/site-packages/paramiko/client.py", line 766, in _auth
+    raise saved_exception
+  File "/home/mark/.local/lib/python3.10/site-packages/paramiko/client.py", line 753, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/mark/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1564, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/mark/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 259, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/mark/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/mark/.local/lib/python3.10/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/mark/.local/lib/python3.10/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/mark/.local/lib/python3.10/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/mark/.local/lib/python3.10/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/mark/.local/lib/python3.10/site-packages/netmiko/ssh_dispatcher.py", line 351, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/mark/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 434, in __init__
+    self._open()
+  File "/home/mark/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 439, in _open
+    self.establish_connection()
+  File "/home/mark/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 1058, in establish_connection
+    raise NetmikoAuthenticationException(msg)
+netmiko.exceptions.NetmikoAuthenticationException: Authentication to device failed.
+
+Common causes of this problem are:
+1. Invalid username and password
+2. Incorrect SSH-key file
+3. Connecting to the wrong device
+
+Device settings: cisco_ios 10.23.157.30:22
+
+
+Authentication failed.
+
+2022-07-15 20:54:42,880 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'sh ip int brief'} on 1 hosts
+2022-07-15 20:54:45,254 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/mark/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 1021, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/home/mark/.local/lib/python3.10/site-packages/paramiko/client.py", line 435, in connect
+    self._auth(
+  File "/home/mark/.local/lib/python3.10/site-packages/paramiko/client.py", line 766, in _auth
+    raise saved_exception
+  File "/home/mark/.local/lib/python3.10/site-packages/paramiko/client.py", line 753, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/mark/.local/lib/python3.10/site-packages/paramiko/transport.py", line 1564, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/mark/.local/lib/python3.10/site-packages/paramiko/auth_handler.py", line 259, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/mark/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/mark/.local/lib/python3.10/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/mark/.local/lib/python3.10/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/mark/.local/lib/python3.10/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/mark/.local/lib/python3.10/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/mark/.local/lib/python3.10/site-packages/netmiko/ssh_dispatcher.py", line 351, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/mark/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 434, in __init__
+    self._open()
+  File "/home/mark/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 439, in _open
+    self.establish_connection()
+  File "/home/mark/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 1058, in establish_connection
+    raise NetmikoAuthenticationException(msg)
+netmiko.exceptions.NetmikoAuthenticationException: Authentication to device failed.
+
+Common causes of this problem are:
+1. Invalid username and password
+2. Incorrect SSH-key file
+3. Connecting to the wrong device
+
+Device settings: cisco_ios 172.19.20.74:22
+
+
+Authentication failed.
+
+2022-07-15 20:56:38,691 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'sh ip int brief'} on 1 hosts
+2022-07-15 20:56:51,423 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'sh ip int brief'} on 1 hosts
+2022-07-15 20:59:04,120 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'sh ip int brief'} on 2 hosts
+2022-07-15 21:00:18,691 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'sh ip int brief'} on 2 hosts

@@ -1,0 +1,36 @@
+## Nornir Groups File 
+---
+CSR1: 
+
+  data: 
+    ntp: 
+      servers: 
+        - 1.1.1.1
+
+CSR2:
+
+  data: 
+    ntp:
+      servers:
+        - 2.2.2.2
+
+CSR3: {}
+
+ASAv:
+  
+  platform: cisco_asa
+  username: roger
+  password: cisco
+
+CSSHGO:
+
+  username: admin 
+  password: admin
+
+  data: 
+    ntp: 
+      servers:
+        - 3.3.3.3
+
+
+

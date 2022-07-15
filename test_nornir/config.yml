@@ -1,0 +1,14 @@
+---
+## Nornir 3.0 Config File 
+
+inventory:
+    plugin: SimpleInventory
+    options: 
+        host_file: "~/scripts/nornir/inventory/hosts.yml"
+        group_file: "~/scripts/nornir/inventory/groups.yml"
+        defaults_file: "~/scripts/nornir/inventory/defaults.yml"
+
+runner: 
+    plugin: threaded
+    options: 
+        num_workers: 20
